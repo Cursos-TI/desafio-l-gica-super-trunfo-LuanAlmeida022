@@ -9,9 +9,9 @@ int main(){
     char cidade1 [50], cidade2[50];
     long long int pib1, pib2;
     unsigned long int populacao1, populacao2;
-    float area1, area2, densidade1, densidade2, cap1, cap2;
-    int turistico1, turistico2;
-    float superpoder1, superpoder2;
+    float area1, area2, densidade1, densidade2, cap1, cap2, superpoder1, superpoder2;
+    int turistico1, turistico2, opcao;
+    
 
     //Coleta de dados da carta 1
    
@@ -99,63 +99,117 @@ int main(){
    printf("Super Poder: %.2f\n", superpoder2);
 
  // Exibição da comparação
-    printf("Comparação de Cartas\n");
-   
-    printf("Atributo: População\n");
-    printf("Carta 1 %s: %lu\n", cidade1,populacao1);
-    printf("Carta 2 %s: %lu\n", cidade2,populacao2);
-   
-   if(populacao1 > populacao2){
+    printf("Escolha qual atributo deseja comparar:\n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB\n");
+    printf("4. Densidade populacional\n");
+    printf("5. PIB per capita\n");
+    printf("6. SuperPoder\n");
+     scanf("%d", &opcao);
+    
+     switch(opcao){
+      case 1:
+      printf("Atributo: População\n");
+      printf("Carta 1 %s: %lu\n", cidade1,populacao1);
+      printf("Carta 2 %s: %lu\n", cidade2,populacao2);
+      if(populacao1 > populacao2){
      printf("Carta 1 venceu\n");
    }
-   else{
+   else if(populacao1 < populacao2){
     printf("Carta 2 venceu\n");
    }
-   
-    printf("Atributo: Área\n");
-    printf("Carta 1 %s: %f\n", cidade1,area1);
-    printf("Carta 2 %s: %f\n", cidade2,area2);
+   else {
+    printf("Empate!\n");
+   }
+      break;
+    
+      case 2:
+      printf("Atributo: Área\n");
+      printf("Carta 1 %s: %.2f\n", cidade1,area1);
+      printf("Carta 2 %s: %.2f\n", cidade2,area2);
   
    if(area1 > area2){
     printf("Carta 1 venceu\n");
    }
-   else{
+   else if(area1 < area2){
     printf("Carta 2 venceu\n");
    }
-   
-   printf("Atributo:PIB\n");
-   printf("Carta 1 %s: %lld\n", cidade1,pib1);
-   printf("Carta 2 %s: %lld\n", cidade2,pib2);
+    else {
+    printf("Empate!\n");
+   }
+     break;
+
+     case 3:
+     printf("Atributo:PIB\n");
+     printf("Carta 1 %s: %lld\n", cidade1,pib1);
+     printf("Carta 2 %s: %lld\n", cidade2,pib2);
    
    if(pib1 > pib2){
     printf("Carta 1 venceu\n");
    }
-   else{
+   else if(pib1 < pib2) {
     printf("Carta 2 venceu\n");
    }
-    
-    printf("Atributo: PIB per capita\n");
-    printf("Carta 1 %s: %f\n", cidade1,cap1);
-    printf("Carta 2 %s: %f\n", cidade2,cap2);
-   
-    if(cap1 > cap2){
-    printf("Carta 1 venceu\n");
+   else {
+    printf("Empate!\n");
    }
-   else{
-    printf("Carta 2 venceu\n");
-   }
-    
-    printf("Atributo: Densidade populacional\n");
-    printf("Carta 1 %s: %f\n", cidade1,densidade1);
-    printf("Carta 2 %s: %f\n", cidade2,densidade2);
+       break;
+
+       case 4:
+       printf("Atributo: Densidade populacional\n");
+       printf("Carta 1 %s: %.2f\n", cidade1,densidade1);
+       printf("Carta 2 %s: %.2f\n", cidade2,densidade2);
    
     if(densidade1 < densidade2){
     printf("Carta 1 venceu\n");
    }
-   else{
+   else if(densidade1 > densidade2){
     printf("Carta 2 venceu\n");
    }
+    else {
+    printf("Empate!\n");
+   }
+      break;
+  
+      case 5:
+    printf("Atributo: PIB per capita\n");
+    printf("Carta 1 %s: %.2f\n", cidade1,cap1);
+    printf("Carta 2 %s: %.2f\n", cidade2,cap2);
    
+    if(cap1 > cap2){
+    printf("Carta 1 venceu\n");
+   }
+   else if (cap1 < cap2){
+    printf("Carta 2 venceu\n");
+   }
+   else {
+    printf("Empate!\n");
+   }
+   break;
+   
+   case 6:
+    printf("Atributo: SuperPoder\n");
+    printf("Carta 1 %s: %.2f\n", cidade1,superpoder1);
+    printf("Carta 2 %s: %.2f\n", cidade2,superpoder2);
+    
+    if(superpoder1 > superpoder2){
+    printf("Carta 1 venceu\n");
+   }
+   else if (superpoder1 < superpoder2) {
+    printf("Carta 2 venceu\n");
+   }
+     else {
+    printf("Empate!\n");
+   }
+      break;
+
+   
+
+   default:
+    printf("opção inválida\n");
+   }
+    
    return 0;
 
 
